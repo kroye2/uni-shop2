@@ -1,5 +1,9 @@
 <template>
   <view>
+    <!-- 搜索组件 -->
+    <view class="search-box">
+      <my-search @click="gotoSearch"></my-search>
+    </view>
     <!-- 轮播图区域 -->
     <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
       <swiper-item v-for="(item,i) in swiperList" :key="i">
@@ -29,7 +33,8 @@
           </navigator>
           <!-- 右侧4个小图片的盒子 -->
           <view class="right-img-box">
-            <navigator class="right-img-item" v-for="(item2,i2) in item.product_list" :key="i2" v-if="i2 !== 0" :url="item2.url">
+            <navigator class="right-img-item" v-for="(item2,i2) in item.product_list" :key="i2" v-if="i2 !== 0"
+              :url="item2.url">
               <image :src="item2.image_src" mode="widthFix" :style="{width:item2.image_width + 'rpx'}">
               </image>
             </navigator>
@@ -96,7 +101,7 @@
           data: res
         } = await uni.$http.get('/api/public/v1/home/floordata')
         if (res.meta.status !== 200) return uni.$showMsg()
-        
+
         // 对数据进行处理
         res.message.forEach(floor => {
           floor.product_list.forEach(prod => {
@@ -104,6 +109,11 @@
           })
         })
         this.floorList = res.message
+      },
+      gotoSearch() {
+        uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
       }
     }
   }
@@ -135,15 +145,23 @@
     height: 60rpx;
     width: 100%;
   }
-  .right-img-box{
+
+  .right-img-box {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-left: 14rpx;
   }
+
   .floor-img-box {
     display: flex;
     padding-left: 10rpx;
-    
+  }
+
+  .search-box {
+    // 吸顶
+    position: sticky;
+    top: 0;
+    z-index: 999;
   }
 </style>
