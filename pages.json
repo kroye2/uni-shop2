@@ -33,14 +33,6 @@
     {
       "root":"subpkg",
       "pages":[{
-        "path" : "goods_detail/goods_detail",
-        "style" : 
-        {
-          "navigationBarTitleText" : "",
-          "enablePullDownRefresh" : false
-        }
-      },
-      {
         "path" : "goods_list/goods_list",
         "style" : 
         {
@@ -52,6 +44,14 @@
       },
       {
         "path" : "search/search",
+        "style" : 
+        {
+          "navigationBarTitleText" : "",
+          "enablePullDownRefresh" : false
+        }
+      },
+      {
+        "path" : "goods_detail/goods_detail",
         "style" : 
         {
           "navigationBarTitleText" : "",
