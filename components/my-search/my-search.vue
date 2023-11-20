@@ -1,7 +1,7 @@
 <template>
-  <view class="my-search-container" :style="{ 'background-color' : bgcolor }" @click="searchBoxHandler">
+  <view class="my-search-container" :style="{ 'background-color' :bgcolor }" @click="searchBoxHandler">
     <!-- 使用view组件模拟input输入框的样式 -->
-    <view class="my-search-box" :style="{ 'border-radius' : radius + 'px' }">
+    <view class="my-search-box" :style="{ 'border-radius' :radius + 'px' }">
       <uni-icons type="search" size="17"></uni-icons>
       <text class="placeholder">搜索</text>
     </view>
